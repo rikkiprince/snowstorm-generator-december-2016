@@ -8,11 +8,15 @@ function Particle(x, y) {
         this.y += 1;
         this.x += wind + _.random(-1, 1);
 
-        if (hit(this.x, this.y)) {
-            this.y -= y;
-            this.x -= wind;
-            burn(this);
-            return true;
+        if (hit(this.x, this.y-1)) {
+            if (!hit(this.x - 1, this.y)) {
+                this.x -= 1;
+            } else if (!hit(this.x + 1, this.y)) {
+                this.y += 1;
+            } else {
+                burn(this);
+                return true;
+            }
         }
         return false;
     };

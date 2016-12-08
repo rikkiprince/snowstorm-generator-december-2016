@@ -1,4 +1,4 @@
-var ONE_FRAME_TIME = 1000 / 60 ;
+var ONE_FRAME_TIME = 1000 / 600 ;
 var snowflakes = [];
 var width = 500;
 var fractionOfWidth = 0.01;
