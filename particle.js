@@ -6,7 +6,7 @@ function Particle(x, y) {
     this.update = function(wind) {
         if (wind === undefined) { wind = 0; }
         this.y += 1;
-        this.x += wind + _.random(-5, 5);
+        this.x += wind + _.random(-1, 1);
 
         if (hit(this.x, this.y-1)) {
             burn(this);

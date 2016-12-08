@@ -24,11 +24,10 @@ function main_loop() {
 	draw(snowflakes);
 	generateNewSnowflakes();
 
-	if(loopCount < 300) {
-		setTimeout( main_loop, ONE_FRAME_TIME );
-		loopCount++;
-		console.log(loopCount);
-	}
+	
+	setTimeout( main_loop, ONE_FRAME_TIME );
+	loopCount++;
+	console.log(loopCount);
 }
 
 function start_loop() {
