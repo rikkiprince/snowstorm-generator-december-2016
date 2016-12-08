@@ -10,6 +10,8 @@ function Particle(x, y) {
 
         if (hit(this.x, this.y-1)) {
             burn(this);
+            return true;
         }
+        return false;
     };
 }
