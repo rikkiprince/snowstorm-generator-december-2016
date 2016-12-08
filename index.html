@@ -7,6 +7,8 @@
 
 <img src="image.png" id="image">
 <script src="lodash.js"></script>
+<script src="game_loop.js"></script>
+<script src="particle.js"></script>
 <script>
     var particles = [];
 
@@ -32,26 +34,29 @@
 
         _.each(particles, (particle) => {
             ctx.beginPath();
-            ctx.arc(particle.x, particle.y, 5, 0, 2 * Math.PI, false);
+            ctx.arc(particle.x, particle.y, 1, 0, 2 * Math.PI, false);
             ctx.fillStyle = 'red';
             ctx.fill();
         });
     }
 
     function hit(x, y) {
-        var data = imageCtx.getImageData(nextPoint[0], nextPoint[1], 1, 1).data;
+        var data = imageCtx.getImageData(x, y, 1, 1).data;
 
         return (data[4] != 255)
     }
 
     function burn(particle) {
         imageCtx.beginPath();
-        imageCtx.arc(particle.x, particle.y, 5, 0, 2 * Math.PI, false);
+        imageCtx.arc(particle.x, particle.y, 1, 0, 2 * Math.PI, false);
         imageCtx.fillStyle = 'red';
         imageCtx.fill();
     }
 
     draw(particles);
+
+
+    window.onload = start_loop();
 </script>
 <style>
     canvas {
