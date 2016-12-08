@@ -10,11 +10,12 @@ function generateNewSnowflakes() {
 }
 
 function main_loop() {
-	
+
 	for(var i=0; i<snowflakes.length; i++) {
 		snowflakes[i].update();
 	}
-	for(var i=0; i<snowflakes.length; i++) {
+
+	for(var j=0; i<snowflakes.length; i++) {
 		draw(snowflake);
 	}
 	generateNewSnowflakes();
