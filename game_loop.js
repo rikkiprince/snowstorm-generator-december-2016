@@ -2,7 +2,7 @@ var ONE_FRAME_TIME = 1000 / 600 ;
 var snowflakes = [];
 var width = 500;
 var fractionOfWidth = 0.01;
-var howManyNew = 2;
+var howManyNew = 20;
 var wind = 0;
 
 function generateNewSnowflakes() {
