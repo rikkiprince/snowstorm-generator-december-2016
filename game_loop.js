@@ -22,7 +22,7 @@ function main_loop() {
 	draw(snowflakes);
 	generateNewSnowflakes();
 
-	if(loopCount < 20) {
+	if(loopCount < 600) {
 		setTimeout( main_loop, ONE_FRAME_TIME );
 		loopCount++;
 		console.log(loopCount);
