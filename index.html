@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Snow</title>
+</head>
+<body>
+
+<img src="image.png" id="image">
+<script src="lodash.js"></script>
+<script>
+    var particles = [];
+
+    var image = document.getElementById("image");
+    var canvas = document.createElement('canvas');
+    canvas.setAttribute('width',image.width);
+    canvas.setAttribute('height',image.height);
+    var ctx = canvas.getContext('2d');
+
+    var imageCanvas = document.createElement('canvas');
+    imageCanvas.setAttribute('width',image.width);
+    imageCanvas.setAttribute('height',image.height);
+    var imageCtx = imageCanvas.getContext('2d');
+    imageCtx.drawImage(image,0, 0);
+
+    document.body.insertBefore(canvas, document.body.childNodes[0]);
+    document.body.insertBefore(imageCanvas, document.body.childNodes[0]);
+
+    image.remove();
+
+    function draw(particles) {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        _.each(particles, (particle) => {
+            ctx.beginPath();
+            ctx.arc(particle.x, particle.y, 5, 0, 2 * Math.PI, false);
+            ctx.fillStyle = 'red';
+            ctx.fill();
+        });
+    }
+
+    function hit(x, y) {
+        var data = imageCtx.getImageData(nextPoint[0], nextPoint[1], 1, 1).data;
+
+        return (data[4] != 255)
+    }
+
+    function burn(particle) {
+        imageCtx.beginPath();
+        imageCtx.arc(particle.x, particle.y, 5, 0, 2 * Math.PI, false);
+        imageCtx.fillStyle = 'red';
+        imageCtx.fill();
+    }
+
+    draw(particles);
+</script>
+<style>
+    canvas {
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+</style>
+</body>
+</html>
