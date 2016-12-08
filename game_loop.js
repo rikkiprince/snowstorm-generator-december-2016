@@ -14,15 +14,17 @@ var loopCount = 0;
 function main_loop() {
 	//console.log("main loop");
 	// update
-	for(var i=0; i<snowflakes.length; i++) {
-		snowflakes[i].update();
+	for(var i=snowflakes.length-1; i>=0; i--) {
+		if(snowflakes[i].update()) {
+			snowflakes.splice(i, 1);
+		}
 	}
 
 	// draw
 	draw(snowflakes);
 	generateNewSnowflakes();
 
-	if(loopCount < 20) {
+	if(loopCount < 300) {
 		setTimeout( main_loop, ONE_FRAME_TIME );
 		loopCount++;
 		console.log(loopCount);
