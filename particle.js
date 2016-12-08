@@ -8,7 +8,9 @@ function Particle(x, y) {
         this.y += 1;
         this.x += wind + _.random(-1, 1);
 
-        if (hit(this.x, this.y-1)) {
+        if (hit(this.x, this.y)) {
+            this.y -= y;
+            this.x -= wind;
             burn(this);
             return true;
         }
