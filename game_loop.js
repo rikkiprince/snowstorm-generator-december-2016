@@ -30,11 +30,8 @@ function main_loop() {
 		document.getElementById("wind").innerHTML = (wind*25).toFixed(0) + "mph";
 	}
 
-	//if(loopCount < 300) {
-		setTimeout( main_loop, ONE_FRAME_TIME );
-		loopCount++;
-		//console.log(loopCount);
-	//}
+	setTimeout( main_loop, ONE_FRAME_TIME );
+	loopCount++;
 }
 
 function start_loop() {

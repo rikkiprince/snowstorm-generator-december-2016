@@ -11,6 +11,8 @@
 <script src="game_loop.js"></script>
 <script src="particle.js"></script>
 <script>
+    var color = "white";
+    var particle_size = 2;
     var particles = [];
 
     var image = document.getElementById("image");
@@ -35,21 +37,21 @@
 
         _.each(particles, (particle) => {
             ctx.beginPath();
-            ctx.arc(particle.x, particle.y, 1, 0, 2 * Math.PI, false);
-            ctx.fillStyle = 'red';
+            ctx.arc(particle.x, particle.y, particle_size, 0, 2 * Math.PI, false);
+            ctx.fillStyle = color;
             ctx.fill();
         });
     }
 
     function hit(x, y) {
         var data = imageCtx.getImageData(x, y, 1, 1).data;
-        return (data[4] != 0)
+        return (data[3] != 0)
     }
 
     function burn(particle) {
         imageCtx.beginPath();
-        imageCtx.arc(particle.x, particle.y, 1, 0, 2 * Math.PI, false);
-        imageCtx.fillStyle = 'red';
+        imageCtx.arc(particle.x, particle.y, particle_size, 0, 2 * Math.PI, false);
+        imageCtx.fillStyle = color;
         imageCtx.fill();
     }
 
@@ -59,6 +61,9 @@
     window.onload = start_loop();
 </script>
 <style>
+    body {
+        background: black;
+    }
     canvas {
         position: absolute;
         top: 0;
